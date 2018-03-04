@@ -31,7 +31,7 @@ public class EventDetails extends AppCompatActivity {
         text = findViewById(R.id.viewDescription);
         text.append(getIntent().getStringExtra("description"));
         text.setClickable(false);
-        text = findViewById(R.id.eventDate);
+        text = findViewById(R.id.viewDate);
         text.append(getIntent().getStringExtra("date"));
         text.setClickable(false);
         
