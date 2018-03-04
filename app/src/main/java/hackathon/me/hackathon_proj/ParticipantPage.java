@@ -1,5 +1,6 @@
 package hackathon.me.hackathon_proj;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,14 @@ public class ParticipantPage extends AppCompatActivity {
         box2 = findViewById(R.id.checkBox2);
         box3 = findViewById(R.id.checkBox3);
 
+        /**Button setup for search**/
+        Button participantScreen = findViewById(R.id.participantSearch);
+        participantScreen.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(ParticipantPage.this, SearchResultsP.class);
+                ParticipantPage.this.startActivity(myIntent);
+            }
+        });
     }
 
     public void onSubmit(View v) {
@@ -33,5 +42,7 @@ public class ParticipantPage extends AppCompatActivity {
         boolean box3Selected = box3.isChecked();
 
     }
+
+
 
 }
