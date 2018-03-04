@@ -30,7 +30,7 @@ public class ParticipantPage extends AppCompatActivity {
         Button participantScreen = findViewById(R.id.participantSearch);
         participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(ParticipantPage.this, SearchResultsP.class);
+                Intent myIntent = new Intent(ParticipantPage.this, SearchResultsV.class);
                 ParticipantPage.this.startActivity(myIntent);
             }
         });

@@ -19,7 +19,6 @@
         <activity android:name=".ParticipantPage" />
         <activity android:name=".VolunteerPage" />
         <activity android:name=".OrganizerPage" />
-        <activity android:name=".SearchResultsP" />
         <activity android:name=".SearchResultsV" />
         <activity android:name=".MainActivity"></activity>
     </application>
