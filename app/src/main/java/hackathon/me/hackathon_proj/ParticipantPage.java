@@ -20,7 +20,7 @@ public class ParticipantPage extends AppCompatActivity {
         setContentView(R.layout.activity_participant_page);
 
         submitButton = findViewById(R.id.participantSearch);
-        View v = findViewById(R.id.participantSearch);
+        View v = submitButton;
 
         box1 = findViewById(R.id.checkBox1);
         box2 = findViewById(R.id.checkBox2);
@@ -36,10 +36,11 @@ public class ParticipantPage extends AppCompatActivity {
     }
 
 }
-
+/*
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
 // TODO Auto-generated method stub
 
     }
 }
+*/
