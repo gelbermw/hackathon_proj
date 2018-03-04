@@ -13,15 +13,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button participantScreen = (Button) findViewById(R.id.to_participant);
-
-        participantScreen.setOnClickListener(new View.OnClickListener() {           //Sets an onClickListener to make button click for intent
+        /**Button setup for participant screen**/
+        Button participantScreen = findViewById(R.id.to_participant);
+        participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 Intent myIntent = new Intent(MainActivity.this, ParticipantPage.class);
                 MainActivity.this.startActivity(myIntent);
             }
         });
-    }
 
+        /**Button setup for Volunteer screen**/
+        Button volunteerScreen = findViewById(R.id.to_volunteer);
+        volunteerScreen.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, VolunteerPage.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
+        /**Button setup for participant screen**/
+        Button organizerScreen = findViewById(R.id.to_organizer);
+        organizerScreen.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, OrganizerPage.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
+    }
 }

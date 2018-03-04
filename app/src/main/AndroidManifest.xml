@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ParticipantPage"></activity>
+        <activity android:name=".ParticipantPage" />
+        <activity android:name=".VolunteerPage" />
+        <activity android:name=".OrganizerPage"></activity>
     </application>
 
 </manifest>
