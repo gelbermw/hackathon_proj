@@ -2,7 +2,7 @@ package hackathon.me.hackathon_proj.database.data;
 
 import android.annotation.SuppressLint;
 
-public class EventUserData
+public class EventUserData extends DatabaseData
 {
 	public int uid;
 	public String name;

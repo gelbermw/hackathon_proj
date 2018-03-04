@@ -6,31 +6,35 @@ import android.annotation.SuppressLint;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-@IgnoreExtraProperties
-public class UserData
+
+public class UserData extends DatabaseData
 {
-	@Exclude
-	public String key;
 	
 	public String name;
 	public String email;
 	public int age;
 	public boolean verified;
 	public String occupation;
+	public String password;
 	
+	public String getPassword()
+	{
+		return password;
+	}
 	
 	public UserData()
 	{
 	
 	}
 	
-	public UserData(String name, String email, int age, boolean verified, String occupation)
+	public UserData(String name, String email, String password, int age, boolean verified, String occupation)
 	{
 		this.name = name;
 		this.email = email;
 		this.age = age;
 		this.verified = verified;
 		this.occupation = occupation;
+		this.password = password;
 	}
 	
 	public String getName()

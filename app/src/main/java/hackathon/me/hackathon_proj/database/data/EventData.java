@@ -22,13 +22,14 @@ public class EventData extends DatabaseData
 	{
 	}
 	
-	public EventData(String title, String category, String description, String date, String organization)
+	public EventData(String title, String category, String description, String date, String organization, String location)
 	{
 		this.title = title;
 		this.category = category;
 		this.description = description;
 		this.date = date;
 		this.organization = organization;
+		this.location = location;
 	}
 	
 	public String getTitle()

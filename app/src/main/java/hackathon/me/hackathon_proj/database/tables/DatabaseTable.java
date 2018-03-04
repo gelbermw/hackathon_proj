@@ -18,18 +18,47 @@ public class DatabaseTable<T extends DatabaseData> implements ChildEventListener
 	
 	protected DatabaseReference db;
 	
+	private Class<T> t;
 	
 	protected Map<String, T> data;
-	protected String table;
+	private String table;
 	
-	public DatabaseTable(String table)
+	public DatabaseTable(String table, Class<T> t)
 	{
+		this.t = t;
 		this.table = table;
 		data = new HashMap<>();
 		
 		db = FirebaseDatabase.getInstance().getReference().child(table);
 		db.addChildEventListener(this);
 		
+	}
+	
+	public boolean containsKey(String key)
+	{
+		return data.containsKey(key.replace(".", "-"));
+	}
+	
+	protected DatabaseReference newEntry(T entry)
+	{
+		return db.push();
+	}
+	
+	public void loadData()
+	{
+		db = FirebaseDatabase.getInstance().getReference().child(table);
+		db.addChildEventListener(this);
+	}
+	
+	public void stopLoading()
+	{
+		db.removeEventListener(this);
+	}
+	
+	public void dispose()
+	{
+		stopLoading();
+		data.clear();
 	}
 	
 	public Map<String, T> getData()
@@ -39,7 +68,7 @@ public class DatabaseTable<T extends DatabaseData> implements ChildEventListener
 	
 	public void addEntry(T entry)
 	{
-		db.push().setValue(entry);
+		newEntry(entry).setValue(entry);
 	}
 	
 	public void updateEntry(T entry)
@@ -50,23 +79,33 @@ public class DatabaseTable<T extends DatabaseData> implements ChildEventListener
 	@Override
 	public void onChildAdded(DataSnapshot dataSnapshot, String s)
 	{
-		DatabaseData child = (DatabaseData) dataSnapshot.getValue();
-		child.key = dataSnapshot.getKey();
-		data.put(child.key, (T) child);
+		DatabaseData child = dataSnapshot.getValue(t);
+		if (child != null)
+		{
+			child.key = dataSnapshot.getKey();
+			Log.d("MEH", "added user!" + child + " :: " + child.key);
+			
+			data.put(child.key, (T) child);
+		}
 		
 	}
 	
 	@Override
 	public void onChildChanged(DataSnapshot dataSnapshot, String s)
 	{
-		DatabaseData child = (DatabaseData) dataSnapshot.getValue();
-		child.key = dataSnapshot.getKey();
-		data.put(child.key, (T) child);
+		DatabaseData child = dataSnapshot.getValue(t);
+		if (child != null)
+		{
+			Log.d("MEH", "changed user!" + child + " :: " + child.key);
+			child.key = dataSnapshot.getKey();
+			data.put(child.key, (T) child);
+		}
 	}
 	
 	@Override
 	public void onChildRemoved(DataSnapshot dataSnapshot)
 	{
+		Log.d("MEH", "removed user!" + dataSnapshot.getKey());
 		data.remove(dataSnapshot.getKey());
 	}
 	
