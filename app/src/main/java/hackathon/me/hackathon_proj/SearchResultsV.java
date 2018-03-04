@@ -1,9 +1,13 @@
 package hackathon.me.hackathon_proj;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -73,10 +77,25 @@ public class SearchResultsV extends AppCompatActivity
 			
 			}
 		});
+			listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+					EventData item = (EventData) adapterView.getItemAtPosition(i);
+
+					Intent intent = new Intent(SearchResultsV.this, EventDetails.class);
+					//based on item add info to intent
+					startActivity(intent);
+				}
+
+		});
 	}
 	
 	private boolean showItem(EventData data)
 	{
 		return true;
+	}
+	public EventData getItem(int position){
+		return list.get(position);
 	}
 }

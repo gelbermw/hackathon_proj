@@ -20,7 +20,8 @@
         <activity android:name=".VolunteerPage" />
         <activity android:name=".OrganizerPage" />
         <activity android:name=".SearchResultsV" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".EventDetails"></activity>
     </application>
 
 </manifest>
