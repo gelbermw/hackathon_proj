@@ -34,7 +34,7 @@ public class OrganizerPage extends AppCompatActivity {
         Button participantScreen = findViewById(R.id.submitBtn);
         participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(OrganizerPage.this, OrganizerPage.class);
+                Intent myIntent = new Intent(OrganizerPage.this, MainActivity.class);
                 OrganizerPage.this.startActivity(myIntent);
 
 
