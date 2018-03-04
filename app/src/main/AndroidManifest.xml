@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".ParticipantPage" />
         <activity android:name=".VolunteerPage" />
-        <activity android:name=".OrganizerPage"></activity>
+        <activity android:name=".OrganizerPage" />
+        <activity android:name=".SearchResultsP" />
+        <activity android:name=".SearchResultsV"></activity>
     </application>
 
 </manifest>
