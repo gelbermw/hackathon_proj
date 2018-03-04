@@ -30,6 +30,10 @@ public class VolunteerPage extends AppCompatActivity {
         participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(VolunteerPage.this, SearchResultsV.class);
+                myIntent.putExtra("makerspace", box1.isChecked());
+                myIntent.putExtra("hackathon", box2.isChecked());
+                myIntent.putExtra("robotics", box3.isChecked());
+                
                 VolunteerPage.this.startActivity(myIntent);
             }
         });

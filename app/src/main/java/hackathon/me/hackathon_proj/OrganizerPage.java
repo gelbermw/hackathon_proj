@@ -52,7 +52,7 @@ public class OrganizerPage extends AppCompatActivity {
                 String description = text.getText().toString();
 
                 EventsTable eventsTable = new EventsTable();
-                eventsTable.addEntry(new EventData(name,organization,date,location,category,description));
+                eventsTable.addEntry(new EventData(name,category, description, date, organization, location));
             }
         });
 

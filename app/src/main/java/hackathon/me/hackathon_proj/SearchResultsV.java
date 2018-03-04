@@ -27,12 +27,17 @@ public class SearchResultsV extends AppCompatActivity
 {
 	
 	List<EventData> list = new ArrayList<>();
+	boolean hack, make, robo;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_results_v);
+		hack = getIntent().getBooleanExtra("hackathon", false);
+		make = getIntent().getBooleanExtra("makerspace", false);
+		robo = getIntent().getBooleanExtra("robotics", false);
+		
 		
 		ListView listView = (ListView) findViewById(R.id.srlist);
 		ArrayAdapter adapter = new ArrayAdapter<EventData>(this, android.R.layout.simple_list_item_1, list);
@@ -77,25 +82,41 @@ public class SearchResultsV extends AppCompatActivity
 			
 			}
 		});
-			listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-					EventData item = (EventData) adapterView.getItemAtPosition(i);
-
-					Intent intent = new Intent(SearchResultsV.this, EventDetails.class);
-					//based on item add info to intent
-					startActivity(intent);
-				}
-
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+			{
+				
+				EventData item = (EventData) adapterView.getItemAtPosition(i);
+				
+				Intent intent = new Intent(SearchResultsV.this, EventDetails.class);
+				//based on item add info to intent
+				
+				
+				intent.putExtra("title", item.title);
+				intent.putExtra("category", item.category);
+				intent.putExtra("location", item.location);
+				intent.putExtra("organization", item.organization);
+				intent.putExtra("description", item.description);
+				intent.putExtra("date", item.date);
+				
+				
+				startActivity(intent);
+			}
+			
 		});
 	}
 	
 	private boolean showItem(EventData data)
 	{
-		return true;
+		return hack && data.category.equalsIgnoreCase("hackathon") ||
+		       make && data.category.equalsIgnoreCase("maker/hacker space") ||
+		       robo && data.category.equalsIgnoreCase("robotics");
 	}
-	public EventData getItem(int position){
+	
+	public EventData getItem(int position)
+	{
 		return list.get(position);
 	}
 }

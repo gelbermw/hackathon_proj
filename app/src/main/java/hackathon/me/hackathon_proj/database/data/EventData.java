@@ -65,6 +65,6 @@ public class EventData extends DatabaseData
 	
 	public String toString()
 	{
-		return String.format("Event[%s, %s, %s, %s, %s]", title, category, description, date, organization);
+		return title;//String.format("Event[%s, %s, %s, %s, %s]", title, category, description, date, organization);
 	}
 }
