@@ -22,29 +22,31 @@ import hackathon.me.hackathon_proj.database.data.EventData;
 public class SearchResultsV extends AppCompatActivity
 {
 	
-	List<String> list = new ArrayList<>();
+	List<EventData> list = new ArrayList<>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_results_v);
-		String[] fromColumns = {ContactsContract.Data.DISPLAY_NAME};
-		int[] toViews = {android.R.id.text1}; // The TextView in simple_list_item_1
+		
 		ListView listView = (ListView) findViewById(R.id.srlist);
-		ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+		ArrayAdapter adapter = new ArrayAdapter<EventData>(this, android.R.layout.simple_list_item_1, list);
 		
 		listView.setAdapter(adapter);
-		Log.d("Fuck", "Page Loaded bitch");
 		
 		DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("events");
 		ref.addChildEventListener(new ChildEventListener()
 		{
 			@Override public void onChildAdded(DataSnapshot dataSnapshot, String s)
 			{
-				Log.d("RESULTS", "Item Removed From List!");
-				list.add(dataSnapshot.getValue(EventData.class).title);
-				adapter.notifyDataSetChanged();
+				Log.d("RESULTS", "Item Added To List!");
+				EventData edat = dataSnapshot.getValue(EventData.class);
+				if (showItem(edat))
+				{
+					list.add(edat);
+					adapter.notifyDataSetChanged();
+				}
 			}
 			
 			@Override public void onChildChanged(DataSnapshot dataSnapshot, String s)
@@ -55,6 +57,10 @@ public class SearchResultsV extends AppCompatActivity
 			@Override public void onChildRemoved(DataSnapshot dataSnapshot)
 			{
 				Log.d("RESULTS", "Item Removed From List!");
+				if (list.remove(dataSnapshot.getValue(EventData.class)))
+				{
+					adapter.notifyDataSetChanged();
+				}
 			}
 			
 			@Override public void onChildMoved(DataSnapshot dataSnapshot, String s)
@@ -67,5 +73,10 @@ public class SearchResultsV extends AppCompatActivity
 			
 			}
 		});
+	}
+	
+	private boolean showItem(EventData data)
+	{
+		return true;
 	}
 }
