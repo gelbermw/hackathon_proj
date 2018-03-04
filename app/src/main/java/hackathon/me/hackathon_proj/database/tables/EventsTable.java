@@ -19,12 +19,7 @@ public class EventsTable extends DatabaseTable<EventData>
 	
 	public EventsTable()
 	{
-		super("events");
+		super("events", EventData.class);
 	}
 	
-	public void addEvent(String title, String category, String description, String date, String organization)
-	{
-		EventData data = new EventData(title, category, description, date, organization);
-		addEntry(data);
-	}
 }
