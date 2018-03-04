@@ -18,8 +18,6 @@ public class VolunteerPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_page);
-        submitButton = findViewById(R.id.volunteerSearch);
-        View v = submitButton;
 
         box1 = findViewById(R.id.checkBox1);
         box2 = findViewById(R.id.checkBox2);
@@ -34,7 +32,7 @@ public class VolunteerPage extends AppCompatActivity {
                 myIntent.putExtra("hackathon", box2.isChecked());
                 myIntent.putExtra("robotics", box3.isChecked());
                 
-                VolunteerPage.this.startActivity(myIntent);
+                startActivity(myIntent);
             }
         });
 

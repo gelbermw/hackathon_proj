@@ -18,16 +18,22 @@ public class EventDetails extends AppCompatActivity {
     
         TextView text = findViewById(R.id.viewName);
         text.append(getIntent().getStringExtra("title"));
+        text.setClickable(false);
         text = findViewById(R.id.viewCategory);
         text.append(getIntent().getStringExtra("category"));
+        text.setClickable(false);
         text = findViewById(R.id.viewLocation);
         text.append(getIntent().getStringExtra("location"));
+        text.setClickable(false);
         text = findViewById(R.id.viewOrganization);
         text.append(getIntent().getStringExtra("organization"));
+        text.setClickable(false);
         text = findViewById(R.id.viewDescription);
         text.append(getIntent().getStringExtra("description"));
+        text.setClickable(false);
         text = findViewById(R.id.eventDate);
         text.append(getIntent().getStringExtra("date"));
+        text.setClickable(false);
         
         /**Home button from event details**/
         Button participantScreen = findViewById(R.id.homeBtn);

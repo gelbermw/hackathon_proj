@@ -19,8 +19,6 @@ public class ParticipantPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_page);
 
-        submitButton = findViewById(R.id.participantSearch);
-        View v = submitButton;
 
         box1 = findViewById(R.id.checkBox1);
         box2 = findViewById(R.id.checkBox2);
@@ -31,7 +29,10 @@ public class ParticipantPage extends AppCompatActivity {
         participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(ParticipantPage.this, SearchResultsV.class);
-                ParticipantPage.this.startActivity(myIntent);
+                myIntent.putExtra("makerspace", box1.isChecked());
+                myIntent.putExtra("hackathon", box2.isChecked());
+                myIntent.putExtra("robotics", box3.isChecked());
+                startActivity(myIntent);
             }
         });
     }
