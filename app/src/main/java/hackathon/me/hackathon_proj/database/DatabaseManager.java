@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import hackathon.me.hackathon_proj.database.data.EventData;
+import hackathon.me.hackathon_proj.database.data.EventUserData;
 import hackathon.me.hackathon_proj.database.data.UserData;
+import hackathon.me.hackathon_proj.database.tables.EventUserTable;
 import hackathon.me.hackathon_proj.database.tables.EventsTable;
 import hackathon.me.hackathon_proj.database.tables.UserTable;
 
@@ -14,6 +16,7 @@ public class DatabaseManager
 	
 	private EventsTable eventTable;
 	private UserTable userTable;
+	private EventUserTable eut;
 	
 	public DatabaseManager()
 	{
@@ -78,8 +81,12 @@ public class DatabaseManager
 	
 	public List<EventData> getAllEvents()
 	{
-		return (List<EventData>) eventTable.getData().values();
+		return new ArrayList<>(eventTable.getData().values());
 	}
 	
-	
+	public void addParticipant(String name, String event, String role)
+	{
+		eut = new EventUserTable(event);
+		eut.addEntry(new EventUserData(name, role));
+	}
 }

@@ -40,7 +40,6 @@ public class ParticipantPage extends AppCompatActivity {
         boolean box1Selected = box1.isChecked();
         boolean box2Selected = box2.isChecked();
         boolean box3Selected = box3.isChecked();
-
     }
 
 

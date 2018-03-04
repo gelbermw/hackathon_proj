@@ -22,4 +22,9 @@ public class EventsTable extends DatabaseTable<EventData>
 		super("events", EventData.class);
 	}
 	
+	
+	protected DatabaseReference newEntry(EventData entry)
+	{
+		return db.child(entry.title);
+	}
 }

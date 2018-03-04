@@ -46,8 +46,8 @@ public class DatabaseTable<T extends DatabaseData> implements ChildEventListener
 	
 	public void loadData()
 	{
-		db = FirebaseDatabase.getInstance().getReference().child(table);
-		db.addChildEventListener(this);
+//		db = FirebaseDatabase.getInstance().getReference().child(table);
+//		db.addChildEventListener(this);
 	}
 	
 	public void stopLoading()

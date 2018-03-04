@@ -29,7 +29,7 @@ public class VolunteerPage extends AppCompatActivity {
         Button participantScreen = findViewById(R.id.volunteerSearch);
         participantScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(VolunteerPage.this, SearchResultsP.class);
+                Intent myIntent = new Intent(VolunteerPage.this, SearchResultsV.class);
                 VolunteerPage.this.startActivity(myIntent);
             }
         });

@@ -4,21 +4,20 @@ import android.annotation.SuppressLint;
 
 public class EventUserData extends DatabaseData
 {
-	public int uid;
 	public String name;
 	public String role;
 	
-	public EventUserData(int uid, String name, String role)
+	public EventUserData()
 	{
-		this.uid = uid;
+	
+	}
+	
+	public EventUserData(String name, String role)
+	{
 		this.name = name;
 		this.role = role;
 	}
 	
-	public int getUid()
-	{
-		return uid;
-	}
 	
 	public String getName()
 	{
@@ -33,7 +32,7 @@ public class EventUserData extends DatabaseData
 	@SuppressLint("DefaultLocale")
 	public String toString()
 	{
-		return String.format("EventUser[%d, %s, %s]", uid, name, role);
+		return String.format("EventUser[%s, %s]", name, role);
 	}
 	
 	
