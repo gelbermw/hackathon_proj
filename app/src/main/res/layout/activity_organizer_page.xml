@@ -20,11 +20,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/lblEvent"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Name of Event"
             android:inputType="textPersonName"
@@ -66,7 +66,7 @@
             android:layout_height="46dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Hosting Orginization or Company"
             android:inputType="textPersonName"
@@ -79,12 +79,12 @@
             tools:layout_conversion_absoluteWidth="395dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/eventDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Date"
             android:inputType="date"
@@ -102,15 +102,17 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Address"
             android:inputType="textPostalAddress"
             android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/eventDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2"
+            app:layout_constraintTop_toTopOf="@+id/EventCatSpinner"
+            app:layout_constraintVertical_bias="0.586"
             tools:layout_conversion_absoluteHeight="55dp"
             tools:layout_conversion_absoluteWidth="395dp" />
 
@@ -125,15 +127,15 @@
         <Spinner
             android:id="@+id/EventCatSpinner"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="27dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="92dp"
             android:spinnerMode="dialog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eventLocation"
+            app:layout_constraintTop_toBottomOf="@+id/eventDate"
             tools:layout_conversion_absoluteHeight="36dp"
             tools:layout_conversion_absoluteWidth="395dp" />
 
@@ -154,8 +156,24 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/EventCatSpinner"
-            app:layout_constraintVertical_bias="0.046"
+            app:layout_constraintVertical_bias="0.112"
             tools:layout_conversion_absoluteHeight="45dp"
             tools:layout_conversion_absoluteWidth="395dp" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eventDescription"
+            app:layout_constraintVertical_bias="0.937" />
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

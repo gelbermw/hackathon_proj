@@ -16,6 +16,7 @@ public class BackendShit
 	{
 		FirebaseDatabase.getInstance().getApp().setAutomaticResourceManagementEnabled(false);
 		DatabaseManager db = new DatabaseManager();
+		//db.registerEvent();
 		
 		db.loadUserData();
 		db.loadEventData();

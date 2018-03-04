@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //new BackendShit();
+        new BackendShit();
         
         /**Button setup for participant screen**/
         Button participantScreen = findViewById(R.id.to_participant);
