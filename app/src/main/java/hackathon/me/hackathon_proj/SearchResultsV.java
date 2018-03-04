@@ -42,7 +42,7 @@ public class SearchResultsV extends AppCompatActivity
 		{
 			@Override public void onChildAdded(DataSnapshot dataSnapshot, String s)
 			{
-				Log.d("Fuck", "Shit loaded");
+				Log.d("RESULTS", "Item Removed From List!");
 				list.add(dataSnapshot.getValue(EventData.class).title);
 				adapter.notifyDataSetChanged();
 			}
@@ -54,7 +54,7 @@ public class SearchResultsV extends AppCompatActivity
 			
 			@Override public void onChildRemoved(DataSnapshot dataSnapshot)
 			{
-			
+				Log.d("RESULTS", "Item Removed From List!");
 			}
 			
 			@Override public void onChildMoved(DataSnapshot dataSnapshot, String s)
