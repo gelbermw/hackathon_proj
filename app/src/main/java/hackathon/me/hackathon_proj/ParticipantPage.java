@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.AdapterView;
 
 public class ParticipantPage extends AppCompatActivity {
 
@@ -34,4 +35,11 @@ public class ParticipantPage extends AppCompatActivity {
 
     }
 
+}
+
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+// TODO Auto-generated method stub
+
+    }
 }
